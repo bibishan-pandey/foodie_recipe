@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:foodie_app/models/category.dart';
 
 enum RecipeComplexity {
   Simple,
