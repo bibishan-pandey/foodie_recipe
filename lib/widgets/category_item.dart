@@ -2,19 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:foodie_app/screens/category_detail.dart';
 
 class CategoryItem extends StatelessWidget {
+  final String id;
   final String title;
   final Color color;
 
   const CategoryItem({
     Key key,
-    this.title,
-    this.color,
+    @required this.id,
+    @required this.title,
+    @required this.color,
   }) : super(key: key);
 
   void _navigateToCategory(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(
       builder: (BuildContext buildContext) {
-        return CategoryDetailScreen();
+        return CategoryDetailScreen(
+          id: id,
+          title: title,
+        );
       },
     ));
   }

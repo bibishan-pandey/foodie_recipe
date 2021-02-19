@@ -12,6 +12,7 @@ class CategoriesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
+        centerTitle: false,
       ),
       body: Container(
         child: GridView(
@@ -30,6 +31,7 @@ class CategoriesScreen extends StatelessWidget {
           children: [
             ...DUMMY_CATEGORIES.map((element) {
               return CategoryItem(
+                id: element.id,
                 title: element.title,
                 color: element.color,
               );
