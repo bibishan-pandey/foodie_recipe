@@ -11,40 +11,22 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Foodie',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
+        accentColor: Colors.amber,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        // canvasColor: Color.fromRGBO(189, 189, 189, 1),
+        fontFamily: 'Raleway',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              bodyText1: TextStyle(
+                color: Color.fromRGBO(33, 33, 33, 1),
+              ),
+              bodyText2: TextStyle(
+                color: Color.fromRGBO(33, 33, 33, 1),
+              ),
+            ),
       ),
-      // home: HomePage(title: 'Foodie'),
       home: CategoriesScreen(title: 'Foodie'),
       debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  HomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Navigation Time'),
-          ],
-        ),
-      ),
     );
   }
 }

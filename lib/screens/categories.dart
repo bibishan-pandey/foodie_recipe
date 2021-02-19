@@ -15,7 +15,7 @@ class CategoriesScreen extends StatelessWidget {
       ),
       body: Container(
         child: GridView(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             top: 20,
             bottom: 20,
             left: 16,
