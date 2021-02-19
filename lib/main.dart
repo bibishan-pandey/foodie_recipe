@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_app/screens/categories.dart';
 
 void main() {
   runApp(App());
@@ -13,7 +14,8 @@ class App extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(title: 'Foodie'),
+      // home: HomePage(title: 'Foodie'),
+      home: CategoriesScreen(title: 'Foodie'),
       debugShowCheckedModeBanner: false,
     );
   }
