@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CategoryDetailScreen extends StatelessWidget {
+  static const routeName = '/category-detail';
+
   @override
   Widget build(BuildContext context) {
     final Map<String, String> routeArguments =

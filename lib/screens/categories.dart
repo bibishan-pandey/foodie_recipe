@@ -3,9 +3,7 @@ import 'package:foodie_app/helpers/dummy_data.dart';
 import 'package:foodie_app/widgets/category_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
-  final String title;
-
-  const CategoriesScreen({Key key, this.title}) : super(key: key);
+  static const String title = "Foodie's Recipe";
 
   @override
   Widget build(BuildContext context) {

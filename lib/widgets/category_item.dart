@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_app/screens/category_detail.dart';
 
 class CategoryItem extends StatelessWidget {
   final String id;
@@ -14,7 +15,7 @@ class CategoryItem extends StatelessWidget {
 
   void _navigateToCategoryDetail(BuildContext context) {
     Navigator.of(context).pushNamed(
-      'category-detail',
+      CategoryDetailScreen.routeName,
       arguments: {
         'id': id,
         'title': title,

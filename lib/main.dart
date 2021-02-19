@@ -7,10 +7,12 @@ void main() {
 }
 
 class App extends StatelessWidget {
+  static const title = "Foodie's Recipe";
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Foodie\'s Recipe',
+      title: title,
       theme: ThemeData(
         primarySwatch: Colors.red,
         accentColor: Colors.amber,
@@ -26,9 +28,9 @@ class App extends StatelessWidget {
               ),
             ),
       ),
-      home: CategoriesScreen(title: 'Foodie\'s Recipe'),
+      home: CategoriesScreen(),
       routes: {
-        'category-detail': (buildContext) => CategoryDetailScreen(),
+        CategoryDetailScreen.routeName: (_) => CategoryDetailScreen(),
       },
       debugShowCheckedModeBanner: false,
     );
