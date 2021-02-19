@@ -1,0 +1,46 @@
+import 'package:flutter/material.dart';
+import 'package:foodie_app/models/category.dart';
+
+enum RecipeComplexity {
+  Simple,
+  Challenging,
+  Hard,
+}
+
+enum RecipeAffordability {
+  Affordable,
+  Pricey,
+  Luxurious,
+}
+
+class Recipe {
+  final String id;
+  final List<Category> categories;
+  final String title;
+  final String imageUrl;
+  final List<String> ingredients;
+  final List<String> steps;
+  final int duration;
+  final RecipeComplexity complexity;
+  final RecipeAffordability affordability;
+  final bool isGlutenFree;
+  final bool isLactoseFree;
+  final bool isVegan;
+  final bool isVegetarian;
+
+  Recipe({
+    @required this.id,
+    @required this.categories,
+    @required this.title,
+    @required this.imageUrl,
+    @required this.ingredients,
+    @required this.steps,
+    @required this.duration,
+    @required this.complexity,
+    @required this.affordability,
+    @required this.isGlutenFree,
+    @required this.isLactoseFree,
+    @required this.isVegan,
+    @required this.isVegetarian,
+  });
+}
