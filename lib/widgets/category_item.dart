@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:foodie_app/screens/category_detail.dart';
 
 class CategoryItem extends StatelessWidget {
   final String id;
@@ -13,21 +12,20 @@ class CategoryItem extends StatelessWidget {
     @required this.color,
   }) : super(key: key);
 
-  void _navigateToCategory(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (BuildContext buildContext) {
-        return CategoryDetailScreen(
-          id: id,
-          title: title,
-        );
+  void _navigateToCategoryDetail(BuildContext context) {
+    Navigator.of(context).pushNamed(
+      'category-detail',
+      arguments: {
+        'id': id,
+        'title': title,
       },
-    ));
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => _navigateToCategory(context),
+      onTap: () => _navigateToCategoryDetail(context),
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(3),
       child: Container(

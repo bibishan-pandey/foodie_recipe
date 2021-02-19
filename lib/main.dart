@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodie_app/screens/categories.dart';
+import 'package:foodie_app/screens/category_detail.dart';
 
 void main() {
   runApp(App());
@@ -26,6 +27,9 @@ class App extends StatelessWidget {
             ),
       ),
       home: CategoriesScreen(title: 'Foodie\'s Recipe'),
+      routes: {
+        'category-detail': (buildContext) => CategoryDetailScreen(),
+      },
       debugShowCheckedModeBanner: false,
     );
   }
