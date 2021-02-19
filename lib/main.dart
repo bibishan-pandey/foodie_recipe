@@ -11,6 +11,17 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    precacheImage(AssetImage('assets/images/hamburger.jpg'), context);
+    precacheImage(AssetImage('assets/images/german-food.jpg'), context);
+    precacheImage(AssetImage('assets/images/light-lovely.jpeg'), context);
+    precacheImage(AssetImage('assets/images/exotic-food.png'), context);
+    precacheImage(AssetImage('assets/images/breakfast.jpeg'), context);
+    precacheImage(AssetImage('assets/images/asian-food.jpg'), context);
+    precacheImage(AssetImage('assets/images/french-food.jpg'), context);
+    precacheImage(AssetImage('assets/images/summer-food.jpg'), context);
+    precacheImage(AssetImage('assets/images/italian-food.jpg'), context);
+    precacheImage(AssetImage('assets/images/quick-easy-food.jpg'), context);
+
     return MaterialApp(
       title: title,
       theme: ThemeData(

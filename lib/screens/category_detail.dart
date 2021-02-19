@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodie_app/helpers/dummy_data.dart';
+import 'package:foodie_app/widgets/recipe_item.dart';
 
 class CategoryDetailScreen extends StatelessWidget {
   static const routeName = '/category-detail';
@@ -23,7 +24,13 @@ class CategoryDetailScreen extends StatelessWidget {
         child: ListView.builder(
           itemCount: categoryRecipes.length,
           itemBuilder: (builderContext, index) {
-            return Text(categoryRecipes[index].title);
+            return RecipeItem(
+              title: categoryRecipes[index].title,
+              imageUrl: categoryRecipes[index].imageUrl,
+              duration: categoryRecipes[index].duration,
+              complexity: categoryRecipes[index].complexity,
+              affordability: categoryRecipes[index].affordability,
+            );
           },
         ),
       ),
