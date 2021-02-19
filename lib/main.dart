@@ -9,7 +9,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Foodie',
+      title: 'Foodie\'s Recipe',
       theme: ThemeData(
         primarySwatch: Colors.red,
         accentColor: Colors.amber,
@@ -25,7 +25,7 @@ class App extends StatelessWidget {
               ),
             ),
       ),
-      home: CategoriesScreen(title: 'Foodie'),
+      home: CategoriesScreen(title: 'Foodie\'s Recipe'),
       debugShowCheckedModeBanner: false,
     );
   }
