@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:foodie_app/screens/categories.dart';
 import 'package:foodie_app/screens/category_detail.dart';
 import 'package:foodie_app/screens/error.dart';
 import 'package:foodie_app/screens/recipe_detail.dart';
+import 'package:foodie_app/screens/tabs.dart';
 
 void main() {
   runApp(App());
@@ -29,6 +29,8 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
         accentColor: Colors.amber,
+        // primarySwatch: Colors.blue,
+        // accentColor: Colors.blueGrey,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         // canvasColor: Color.fromRGBO(189, 189, 189, 1),
         fontFamily: 'Raleway',
@@ -43,7 +45,7 @@ class App extends StatelessWidget {
               ),
             ),
       ),
-      home: CategoriesScreen(),
+      home: TabsScreen(),
       routes: {
         CategoryDetailScreen.routeName: (_) => CategoryDetailScreen(),
         RecipeDetailScreen.routeName: (_) => RecipeDetailScreen(),
