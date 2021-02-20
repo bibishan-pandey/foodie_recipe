@@ -25,6 +25,7 @@ class CategoryDetailScreen extends StatelessWidget {
           itemCount: categoryRecipes.length,
           itemBuilder: (builderContext, index) {
             return RecipeItem(
+              id: categoryRecipes[index].id,
               title: categoryRecipes[index].title,
               imageUrl: categoryRecipes[index].imageUrl,
               duration: categoryRecipes[index].duration,

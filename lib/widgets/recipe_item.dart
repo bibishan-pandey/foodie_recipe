@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:foodie_app/models/recipe.dart';
+import 'package:foodie_app/screens/recipe_detail.dart';
 import 'package:foodie_app/widgets/recipe_item_bottom_card.dart';
 
 class RecipeItem extends StatelessWidget {
+  final String id;
   final String title;
   final String imageUrl;
   final int duration;
@@ -10,6 +12,7 @@ class RecipeItem extends StatelessWidget {
   final RecipeAffordability affordability;
 
   RecipeItem({
+    @required this.id,
     @required this.title,
     @required this.imageUrl,
     @required this.duration,
@@ -33,7 +36,14 @@ class RecipeItem extends StatelessWidget {
             : 'Luxurious';
   }
 
-  void _selectRecipe(BuildContext context) {}
+  void _navigateToRecipeDetail(BuildContext context) {
+    Navigator.of(context).pushNamed(
+      RecipeDetailScreen.routeName,
+      arguments: {
+        'id': id,
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +55,7 @@ class RecipeItem extends StatelessWidget {
         bottom: 10,
       ),
       child: InkWell(
-        onTap: () => _selectRecipe(context),
+        onTap: () => _navigateToRecipeDetail(context),
         splashColor: Theme.of(context).primaryColor,
         borderRadius: BorderRadius.circular(3),
         child: Card(
