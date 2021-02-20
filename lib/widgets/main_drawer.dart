@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_app/screens/filters.dart';
 
 class MainDrawer extends StatelessWidget {
   Widget _buildListTileItem({
@@ -51,13 +52,16 @@ class MainDrawer extends StatelessWidget {
             icon: Icons.restaurant,
             tileName: 'Foods',
             tapHandler: () {
-              Navigator.of(context).pushNamed('/');
+              Navigator.of(context).pushReplacementNamed('/');
             },
           ),
           _buildListTileItem(
             icon: Icons.settings,
-            tileName: 'Settings',
-            tapHandler: () {},
+            tileName: 'Filters',
+            tapHandler: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(FiltersScreen.routeName);
+            },
           ),
           _buildListTileItem(
             icon: Icons.settings,

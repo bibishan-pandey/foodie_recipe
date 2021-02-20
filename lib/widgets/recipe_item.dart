@@ -42,7 +42,18 @@ class RecipeItem extends StatelessWidget {
       arguments: {
         'id': id,
       },
-    );
+    ).then((value) {
+      print(value);
+    });
+    // passing the value from one screen to another after popping
+    // the screen
+
+    // NOTE: possible as pushNamed returns a Future that executes
+    // after the screen has been popped out
+
+    // Usage from recipe_detail.dart floating action button:
+    // Navigator.of(context).pop(id);
+    // The id part is printed after we click the floating action button
   }
 
   @override

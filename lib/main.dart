@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodie_app/screens/category_detail.dart';
 import 'package:foodie_app/screens/error.dart';
+import 'package:foodie_app/screens/filters.dart';
 import 'package:foodie_app/screens/recipe_detail.dart';
 import 'package:foodie_app/screens/tabs.dart';
 
@@ -51,6 +52,7 @@ class App extends StatelessWidget {
         // '/': (_) => TabsScreen(),
         CategoryDetailScreen.routeName: (_) => CategoryDetailScreen(),
         RecipeDetailScreen.routeName: (_) => RecipeDetailScreen(),
+        FiltersScreen.routeName: (_) => FiltersScreen(),
       },
       onGenerateRoute: (RouteSettings settings) {
         return MaterialPageRoute(builder: (ctx) => ErrorScreen());
