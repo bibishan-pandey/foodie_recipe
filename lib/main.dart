@@ -46,7 +46,9 @@ class App extends StatelessWidget {
             ),
       ),
       home: TabsScreen(),
+      // initialRoute: '/',
       routes: {
+        // '/': (_) => TabsScreen(),
         CategoryDetailScreen.routeName: (_) => CategoryDetailScreen(),
         RecipeDetailScreen.routeName: (_) => RecipeDetailScreen(),
       },
