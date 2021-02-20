@@ -63,11 +63,6 @@ class MainDrawer extends StatelessWidget {
                   .pushReplacementNamed(FiltersScreen.routeName);
             },
           ),
-          _buildListTileItem(
-            icon: Icons.settings,
-            tileName: 'Settings',
-            tapHandler: () {},
-          ),
         ],
       ),
     );
