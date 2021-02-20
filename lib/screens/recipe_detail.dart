@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:foodie_app/helpers/dummy_data.dart';
 import 'package:foodie_app/models/recipe.dart';
 import 'package:foodie_app/widgets/recipe_detail_items.dart';
 import 'package:foodie_app/widgets/recipe_item_bottom_card.dart';
@@ -7,6 +6,10 @@ import 'package:foodie_app/widgets/single_step.dart';
 
 class RecipeDetailScreen extends StatelessWidget {
   static const routeName = '/category-detail/recipe-detail';
+
+  final List<Recipe> recipes;
+
+  const RecipeDetailScreen({Key key, this.recipes}) : super(key: key);
 
   Widget _buildSectionTitle(BuildContext context, String text) {
     return Container(
@@ -45,7 +48,7 @@ class RecipeDetailScreen extends StatelessWidget {
         ModalRoute.of(context).settings.arguments;
     final id = routeArguments['id'];
 
-    final recipe = DUMMY_RECIPES.firstWhere((e) => e.id == id);
+    final recipe = recipes.firstWhere((e) => e.id == id);
 
     return Scaffold(
       appBar: AppBar(

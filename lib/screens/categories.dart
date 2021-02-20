@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:foodie_app/helpers/dummy_data.dart';
+import 'package:foodie_app/models/category.dart';
 import 'package:foodie_app/widgets/category_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
   static const String title = "Foodie's Recipe";
+
+  final List<Category> categories;
+
+  const CategoriesScreen({Key key, this.categories}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +26,7 @@ class CategoriesScreen extends StatelessWidget {
           mainAxisSpacing: 16,
         ),
         children: [
-          ...DUMMY_CATEGORIES.map((element) {
+          ...categories.map((element) {
             return CategoryItem(
               id: element.id,
               title: element.title,

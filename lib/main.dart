@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_app/helpers/dummy_data.dart';
+import 'package:foodie_app/models/category.dart';
+import 'package:foodie_app/models/recipe.dart';
 import 'package:foodie_app/screens/category_detail.dart';
 import 'package:foodie_app/screens/error.dart';
 import 'package:foodie_app/screens/filters.dart';
@@ -9,8 +12,44 @@ void main() {
   runApp(App());
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   static const title = "Foodie's Recipe";
+
+  @override
+  _AppState createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  Map<String, bool> _filters = {
+    'gluten': false,
+    'lactose': false,
+    'vegan': false,
+    'vegetarian': false,
+  };
+
+  List<Recipe> _recipes = DUMMY_RECIPES;
+  List<Category> _categories = DUMMY_CATEGORIES;
+
+  void _setFilters(Map<String, bool> filters) {
+    setState(() {
+      _filters = filters;
+      _recipes = DUMMY_RECIPES.where((recipe) {
+        if (_filters['gluten'] && !recipe.isGlutenFree) {
+          return false;
+        }
+        if (_filters['lactose'] && !recipe.isLactoseFree) {
+          return false;
+        }
+        if (_filters['vegan'] && !recipe.isVegan) {
+          return false;
+        }
+        if (_filters['vegetarian'] && !recipe.isVegetarian) {
+          return false;
+        }
+        return true;
+      }).toList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +65,7 @@ class App extends StatelessWidget {
     precacheImage(AssetImage('assets/images/quick-easy-food.jpg'), context);
 
     return MaterialApp(
-      title: title,
+      title: App.title,
       theme: ThemeData(
         primarySwatch: Colors.red,
         accentColor: Colors.amber,
@@ -46,13 +85,22 @@ class App extends StatelessWidget {
               ),
             ),
       ),
-      home: TabsScreen(),
+      home: TabsScreen(
+        categories: _categories,
+      ),
       // initialRoute: '/',
       routes: {
         // '/': (_) => TabsScreen(),
-        CategoryDetailScreen.routeName: (_) => CategoryDetailScreen(),
-        RecipeDetailScreen.routeName: (_) => RecipeDetailScreen(),
-        FiltersScreen.routeName: (_) => FiltersScreen(),
+        CategoryDetailScreen.routeName: (_) => CategoryDetailScreen(
+              recipes: _recipes,
+            ),
+        RecipeDetailScreen.routeName: (_) => RecipeDetailScreen(
+              recipes: _recipes,
+            ),
+        FiltersScreen.routeName: (_) => FiltersScreen(
+              filters: _filters,
+              setFiltersFunc: _setFilters,
+            ),
       },
       onGenerateRoute: (RouteSettings settings) {
         return MaterialPageRoute(builder: (ctx) => ErrorScreen());
