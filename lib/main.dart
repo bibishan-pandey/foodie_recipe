@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:foodie_app/helpers/dummy_data.dart';
 import 'package:foodie_app/models/category.dart';
 import 'package:foodie_app/models/recipe.dart';
@@ -9,6 +10,11 @@ import 'package:foodie_app/screens/recipe_detail.dart';
 import 'package:foodie_app/screens/tabs.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(App());
 }
 
