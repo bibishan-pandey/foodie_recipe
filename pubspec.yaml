@@ -57,6 +57,10 @@ flutter:
     - assets/images/quick-easy-food.jpg
     - assets/images/summer-food.jpg
     - assets/images/exotic-food.png
+    - assets/images/gluten-food.jpg
+    - assets/images/lactose-food.jpg
+    - assets/images/vegan-food.jpeg
+    - assets/images/vegetarian-food.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

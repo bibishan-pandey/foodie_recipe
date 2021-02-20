@@ -35,6 +35,8 @@ class App extends StatelessWidget {
         textTheme: ThemeData.light().textTheme.copyWith(
               bodyText1: TextStyle(
                 color: Color.fromRGBO(33, 33, 33, 1),
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
               ),
               bodyText2: TextStyle(
                 color: Color.fromRGBO(33, 33, 33, 1),
