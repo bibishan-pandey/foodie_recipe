@@ -28,6 +28,7 @@ class _AppState extends State<App> {
   };
 
   List<Recipe> _recipes = DUMMY_RECIPES;
+  List<Recipe> _favoriteRecipes = [];
   List<Category> _categories = DUMMY_CATEGORIES;
 
   void _setFilters(Map<String, bool> filters) {
@@ -49,6 +50,25 @@ class _AppState extends State<App> {
         return true;
       }).toList();
     });
+  }
+
+  void _setFavorites(String recipeId) {
+    final index =
+        _favoriteRecipes.indexWhere((recipe) => recipe.id == recipeId);
+    if (index >= 0) {
+      setState(() {
+        _favoriteRecipes.removeAt(index);
+      });
+    } else {
+      setState(() {
+        _favoriteRecipes
+            .add(DUMMY_RECIPES.firstWhere((recipe) => recipe.id == recipeId));
+      });
+    }
+  }
+
+  bool _isFavorite(String id) {
+    return _favoriteRecipes.any((recipe) => recipe.id == id);
   }
 
   @override
@@ -87,6 +107,7 @@ class _AppState extends State<App> {
       ),
       home: TabsScreen(
         categories: _categories,
+        favoriteRecipes: _favoriteRecipes,
       ),
       // initialRoute: '/',
       routes: {
@@ -96,6 +117,8 @@ class _AppState extends State<App> {
             ),
         RecipeDetailScreen.routeName: (_) => RecipeDetailScreen(
               recipes: _recipes,
+              isFavoriteFunc: _isFavorite,
+              setFavoritesFunc: _setFavorites,
             ),
         FiltersScreen.routeName: (_) => FiltersScreen(
               filters: _filters,

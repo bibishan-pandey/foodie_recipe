@@ -8,8 +8,15 @@ class RecipeDetailScreen extends StatelessWidget {
   static const routeName = '/category-detail/recipe-detail';
 
   final List<Recipe> recipes;
+  final Function isFavoriteFunc;
+  final Function setFavoritesFunc;
 
-  const RecipeDetailScreen({Key key, this.recipes}) : super(key: key);
+  const RecipeDetailScreen({
+    Key key,
+    this.recipes,
+    this.isFavoriteFunc,
+    this.setFavoritesFunc,
+  }) : super(key: key);
 
   Widget _buildSectionTitle(BuildContext context, String text) {
     return Container(
@@ -202,6 +209,13 @@ class RecipeDetailScreen extends StatelessWidget {
             RecipeDetailItems(recipe: recipe),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          isFavoriteFunc(id) ? Icons.favorite : Icons.favorite_border,
+          color: Colors.white,
+        ),
+        onPressed: () => setFavoritesFunc(id),
       ),
       // floatingActionButton: FloatingActionButton(
       //   child: Icon(
