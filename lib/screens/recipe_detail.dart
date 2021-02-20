@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodie_app/helpers/dummy_data.dart';
+import 'package:foodie_app/models/recipe.dart';
 import 'package:foodie_app/widgets/recipe_detail_items.dart';
+import 'package:foodie_app/widgets/recipe_item_bottom_card.dart';
 import 'package:foodie_app/widgets/single_step.dart';
 
 class RecipeDetailScreen extends StatelessWidget {
@@ -19,6 +21,22 @@ class RecipeDetailScreen extends StatelessWidget {
         style: Theme.of(context).textTheme.bodyText1,
       ),
     );
+  }
+
+  String _getComplexity(RecipeComplexity complexity) {
+    return complexity == RecipeComplexity.Simple
+        ? 'Simple'
+        : complexity == RecipeComplexity.Challenging
+            ? 'Challenging'
+            : 'Hard';
+  }
+
+  String _getAffordability(RecipeAffordability affordability) {
+    return affordability == RecipeAffordability.Affordable
+        ? 'Affordable'
+        : affordability == RecipeAffordability.Pricey
+            ? 'Pricey'
+            : 'Luxurious';
   }
 
   @override
@@ -75,14 +93,41 @@ class RecipeDetailScreen extends StatelessWidget {
                         end: Alignment.topCenter,
                       ),
                     ),
-                    child: Text(
-                      recipe.title,
-                      style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.white,
-                      ),
-                      softWrap: true,
-                      overflow: TextOverflow.fade,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          recipe.title,
+                          style: TextStyle(
+                            fontSize: 22,
+                            color: Colors.white,
+                          ),
+                          softWrap: true,
+                          overflow: TextOverflow.fade,
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            RecipeItemInfo(
+                              icon: Icons.schedule,
+                              color: Colors.white,
+                              text: '${recipe.duration.toString()} mins',
+                            ),
+                            RecipeItemInfo(
+                              icon: Icons.play_for_work,
+                              color: Colors.white,
+                              text: _getComplexity(recipe.complexity),
+                            ),
+                            RecipeItemInfo(
+                              icon: Icons.attach_money,
+                              color: Colors.white,
+                              text: _getAffordability(recipe.affordability),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 ],

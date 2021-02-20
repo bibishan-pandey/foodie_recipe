@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class RecipeItemInfo extends StatelessWidget {
   final IconData icon;
   final String text;
+  final Color color;
 
   const RecipeItemInfo({
     Key key,
     this.icon,
     this.text,
+    this.color = Colors.black,
   }) : super(key: key);
 
   @override
@@ -18,7 +20,7 @@ class RecipeItemInfo extends StatelessWidget {
         Icon(
           icon,
           size: 20,
-          color: Theme.of(context).textTheme.bodyText1.color,
+          color: color,
         ),
         SizedBox(
           width: 6,
@@ -26,7 +28,7 @@ class RecipeItemInfo extends StatelessWidget {
         Text(
           text,
           style: TextStyle(
-            color: Theme.of(context).textTheme.bodyText1.color,
+            color: color,
           ),
         ),
       ],
