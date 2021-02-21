@@ -71,16 +71,19 @@ class RecipeDetailScreen extends StatelessWidget {
               child: Stack(
                 alignment: AlignmentDirectional.bottomStart,
                 children: <Widget>[
-                  Image.network(
-                    recipe.imageUrl,
+                  Container(
                     height: 300,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      return loadingProgress == null
-                          ? child
-                          : LinearProgressIndicator();
-                    },
+                    child: Image.network(
+                      recipe.imageUrl,
+                      height: 300,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      loadingBuilder: (context, child, loadingProgress) {
+                        return loadingProgress == null
+                            ? child
+                            : LinearProgressIndicator();
+                      },
+                    ),
                   ),
                   Container(
                     padding: EdgeInsets.only(
