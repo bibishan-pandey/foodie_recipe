@@ -18,4 +18,5 @@ samples, guidance on mobile development, and a full API reference.
 ## demo video
 <div>
   <img src="https://github.com/bibishan-pandey/foodie_recipe/blob/master/assets/demos/FoodiesRecipe.gif" width="25%" height="25%">
+  <img src="https://github.com/bibishan-pandey/foodie_recipe/blob/master/assets/demos/FoodiesRecipeTheme.gif" width="75%" height="75%">
 </div>
